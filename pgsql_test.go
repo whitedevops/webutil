@@ -6,9 +6,9 @@ import (
 )
 
 func TestPGPoint(t *testing.T) {
-	g := PGPoint(10, 20)
 	w := "POINT(20.000000 10.000000)"
-	if g != w {
+	g := PGPoint(10, 20)
+	if w != g {
 		t.Errorf("want %#v, got %#v", w, g)
 	}
 }

@@ -2,6 +2,7 @@ package webutil
 
 import (
 	"reflect"
+	"strings"
 	"testing"
 )
 
@@ -60,5 +61,16 @@ func TestIsZero(t *testing.T) {
 		if IsZero(c[0]) != c[1] {
 			t.Errorf("%#v", c[0])
 		}
+	}
+}
+
+func TestChecksumMD5(t *testing.T) {
+	w := "3858f62230ac3c915f300c664312c63f"
+	g, err := ChecksumMD5(strings.NewReader("foobar"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if w != g {
+		t.Errorf("want %#v, got %#v", w, g)
 	}
 }

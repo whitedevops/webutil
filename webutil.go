@@ -1,6 +1,11 @@
 package webutil
 
-import "reflect"
+import (
+	"crypto/md5"
+	"fmt"
+	"io"
+	"reflect"
+)
 
 // StringSliceContains chechs the string slice s contains the element e.
 func StringSliceContains(s []string, e string) bool {
@@ -54,4 +59,14 @@ func IsZero(v interface{}) bool {
 	}
 
 	return rv.Interface() == reflect.Zero(rv.Type()).Interface()
+}
+
+// ChecksumMD5 returns the MD5 checksum of r content.
+func ChecksumMD5(r io.Reader) (sum string, err error) {
+	hash := md5.New()
+	if _, err = io.Copy(hash, r); err != nil {
+		return
+	}
+	sum = fmt.Sprintf("%x", hash.Sum(nil))
+	return
 }
