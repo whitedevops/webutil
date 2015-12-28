@@ -7,7 +7,7 @@ import (
 	"reflect"
 )
 
-// StringSliceContains chechs the string slice s contains the element e.
+// StringSliceContains checks that the string slice s contains the element e.
 func StringSliceContains(s []string, e string) bool {
 	for _, se := range s {
 		if e == se {
