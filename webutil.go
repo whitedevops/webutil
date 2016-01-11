@@ -2,7 +2,7 @@ package webutil
 
 import (
 	"crypto/md5"
-	"fmt"
+	"encoding/hex"
 	"io"
 	"reflect"
 )
@@ -67,6 +67,6 @@ func ChecksumMD5(r io.Reader) (sum string, err error) {
 	if _, err = io.Copy(hash, r); err != nil {
 		return
 	}
-	sum = fmt.Sprintf("%x", hash.Sum(nil))
+	sum = hex.EncodeToString(hash.Sum(nil))
 	return
 }
