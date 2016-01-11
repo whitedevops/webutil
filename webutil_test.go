@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestStringSliceContains(t *testing.T) {
+func TestStringsSliceContains(t *testing.T) {
 	for _, c := range [][3]interface{}{
 		{[]string(nil), "", false},
 		{[]string{}, "", false},
@@ -14,7 +14,7 @@ func TestStringSliceContains(t *testing.T) {
 		{[]string{}, "foobar", false},
 		{[]string{"foo", "bar"}, "foo", true},
 	} {
-		if StringSliceContains(c[0].([]string), c[1].(string)) != c[2] {
+		if StringsSliceContains(c[0].([]string), c[1].(string)) != c[2] {
 			t.Errorf("%#v in %#v", c[1], c[0])
 		}
 	}
