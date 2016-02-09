@@ -1,4 +1,4 @@
-# WebUtil
+# webutil
 
 Package webutil provides utility functions for web apps.
 
