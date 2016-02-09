@@ -1,3 +1,4 @@
+// Package webutil provides utility functions for web apps.
 package webutil
 
 import (
